@@ -2,9 +2,9 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components';
 
 
-function Orb() {
+function Sphere() {
 
-    const moveOrb = keyframes`
+    const moveSphere = keyframes`
         0%{
             transform: translate(0,0);
         }
@@ -16,7 +16,7 @@ function Orb() {
         }
 
     `
-    const OrbStyled = styled.div`
+    const SphereStyled = styled.div`
         width: 70vh;
         height: 70vh;
         position: absolute;
@@ -25,12 +25,12 @@ function Orb() {
         margin-top: -37vh;
         background: linear-gradient(180deg,#F56692 0%, #F2994A 100%);
         filter: blur(100px);
-        animation:${moveOrb} 1s alternate linear infinite;
+        animation:${moveSphere} 15s alternate linear infinite;
     `;
 
     return (
-        <OrbStyled></OrbStyled>
+        <SphereStyled></SphereStyled>
     )
 }
 
-export default Orb;
+export default Sphere;
