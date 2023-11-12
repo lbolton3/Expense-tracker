@@ -1,12 +1,12 @@
-const { addExpense, getExpense,deleteExpense } = require('../controllers/expense');
-const{ addIncome, getIncomes, deleteIncome } = require('../controllers/income');
+const { addCost, getCost,deleteCost } = require('../controllers/cost');
+const{ addEarning, getEarnings, deleteEarnings } = require('../controllers/earnings');
 const router = require('express').Router()
 
 
-router.post('/add-income', addIncome)
-      .get('/get-incomes', getIncomes)
-      .delete('/delete-income/:id',deleteIncome)
-      .post('/add-expense', addExpense)
-      .get('/get-expenses', getExpense)
-      .delete('/delete-expenses/:id',deleteExpense)
+router.post('/add-earnings', addEarning)
+      .get('/get-earnings', getEarnings)
+      .delete('/delete-earnings/:id',deleteEarnings)
+      .post('/add-cost', addCost)
+      .get('/get-cost', getCost)
+      .delete('/delete-cost/:id',deleteCost)
 module.exports = router

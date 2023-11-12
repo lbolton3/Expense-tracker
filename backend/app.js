@@ -1,8 +1,8 @@
 const express = require('express')
 const cors = require('cors');
-const app = express()
+const application = express()
 require('dotenv').config()
-const { db } = require('./db/db');
+const { database } = require('./database/database');
 const{readdirSync} = require('fs')
 const path = require('path');
 const PORT = process.env.PORT
@@ -10,28 +10,28 @@ const PORT = process.env.PORT
 
 //middlewares
 
-app.use(express.json())
-app.use(cors())
+application.use(express.json())
+application.use(cors())
 
 //routes
 const routesPath = path.join(__dirname, 'routes');
 
 readdirSync(routesPath).forEach((route) => {
     const routePath = path.join(routesPath, route);
-    app.use('/api/v1', require(routePath));
+    application.use('/api/v1', require(routePath));
 });
 //readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
 
-app.use('/api/v1', require('./routes/transactions'));
-app.get('/', (req, res)=>{
+application.use('/api/v1', require('./routes/transactions'));
+application.get('/', (req, res)=>{
     res.send('Hello World')
 })
 
 
 const server = () => {
-    db()
-    app.listen(PORT, () => {
+    database()
+    application.listen(PORT, () => {
         console.log('listening to port:', PORT)
     })
 }
