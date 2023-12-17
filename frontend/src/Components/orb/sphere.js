@@ -1,8 +1,12 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
-
+import { WindowSize } from '../../utils/WindowSize';
 
 function Sphere() {
+
+    const {width, height} = WindowSize()
+    console.log(width,height)
+
 
     const moveSphere = keyframes`
         0%{
