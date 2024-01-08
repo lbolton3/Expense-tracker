@@ -3,21 +3,25 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { WindowSize } from '../../utils/WindowSize';
 
+// Move keyframes outside the Sphere component
+
+
 function Sphere() {
   const { width, height } = WindowSize();
+
   console.log(width, height);
 
   const moveSphere = keyframes`
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(${width / 1.2}px, ${height / 2}px);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  `;
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100vw, 50vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+`;
 
   const SphereStyled = styled.div`
     width: 70vh;
@@ -31,12 +35,12 @@ function Sphere() {
     animation: ${moveSphere} 15s alternate linear infinite;
   `;
 
-  return <SphereStyled></SphereStyled>;
+  return (
+      <SphereStyled></SphereStyled>
+  )
 }
 
 export default Sphere;
-
-
 
 
 /*import React from 'react'
