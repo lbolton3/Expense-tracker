@@ -25,5 +25,4 @@ export const menuItems = [
         icon: expenses,
         link: "/dashboard",
     }
-   
 ]
