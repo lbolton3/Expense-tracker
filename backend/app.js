@@ -8,7 +8,7 @@ const path = require('path');
 const PORT = process.env.PORT
 
 
-//middlewares
+//middlewares 
 
 application.use(express.json())
 application.use(cors())

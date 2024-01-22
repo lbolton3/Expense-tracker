@@ -1,3 +1,4 @@
+import React, {useState,useMemo} from 'react'
 import bg from './img/bg.png'
 import {MainLayout} from './styles/Layouts'
 import Sphere from "./Components/orb/sphere";
@@ -12,11 +13,16 @@ const AppStyled = styled.div`
 `;
 
 function App(){
+  const [active,setActive] = React.useState(1)
+  const sphereMemo = useMemo(()=>{
+    return <Sphere/>
+
+  },[])
   return(
     <AppStyled bg={bg} className="App">
-      <Sphere/>
+      {sphereMemo}
       <MainLayout>
-        <Navigation/>
+        <Navigation active={active} setActive={setActive}/>
       </MainLayout>
     </AppStyled>
   )
